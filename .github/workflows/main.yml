@@ -47,8 +47,8 @@ jobs:
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           commit-message: "Auto-generated commit for feature branch"
-          branch: main
-          base: main
+          branch: ${{ github.ref_name }}
+          base: master
           title: "Auto PR: ${{ github.ref_name }}"
           body: |
             This pull request was automatically created by GitHub Actions.
