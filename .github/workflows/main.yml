@@ -1,0 +1,33 @@
+name: AutoTransform
+
+on:
+  pull_request:
+    branches:
+      - main  # 监听目标分支，例如 main
+
+jobs:
+  sync-upstream:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 检出代码库
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 设置 Python 环境
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # 安装依赖
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      # 运行 Python 脚本并传递 Secrets
+      - name: Run Python script with secrets
+        env:
+          API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python auto_transform.py
