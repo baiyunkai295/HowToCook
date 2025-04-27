@@ -1,9 +1,8 @@
 name: AutoTransform
 
 on:
-  pull_request:
-    branches:
-      - main  # 监听目标分支，例如 main
+  push:
+    branches: [ master ]
 
 jobs:
   sync-upstream:
