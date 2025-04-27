@@ -86,6 +86,12 @@ def format(transform):
   if json_output.endswith('\n```') :
     json_output=json_output[:-4]
 
+  # 创建对应文件夹
+  target_dir=dst[:-len(transform.name)]
+  if not os.path.exists(target_dir):
+    print(f'创建文件夹：{target_dir}')
+    os.makedirs(target_dir)
+    
   with open(dst, "w", encoding='utf-8') as file:
     file.write(json_output)
   # print(json_output)
