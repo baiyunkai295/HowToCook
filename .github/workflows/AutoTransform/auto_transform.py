@@ -6,7 +6,7 @@ import time
 # os.getenv("OPENROUTER_API_KEY")
 client = OpenAI(
   base_url="https://openrouter.ai/api/v1",
-  api_key=f'{os.getenv("OPENROUTER_API_KEY")}',
+  api_key=f'{os.getenv("API_KEY")}',
 )
 # DeepSeek预设
 system_prompt = ""
