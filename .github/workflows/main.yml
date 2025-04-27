@@ -47,7 +47,7 @@ jobs:
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           commit-message: "Auto-generated commit for feature branch"
-          branch: ${{ github.ref_name }}
+          branch: main
           base: main
           title: "Auto PR: ${{ github.ref_name }}"
           body: |
